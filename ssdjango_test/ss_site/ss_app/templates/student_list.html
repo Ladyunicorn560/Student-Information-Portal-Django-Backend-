@@ -1,0 +1,31 @@
+<!-- student_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'ss_app/styles.css' %}">
+    <title>Student Management System</title>
+</head>
+<body align="center">
+    <h1>Student Management System</h1>
+
+    <!-- Button to toggle student list visibility -->
+    <form method="post" action="{% url 'student_list' %}">
+        {% csrf_token %}
+        <button type="submit" name="display_student_list">Display Student List</button>
+    </form>
+
+    <!-- Other buttons for different functionalities -->
+    <form method="get" action="{% url 'add_student' %}">
+        <button type="submit">Add Student</button>
+    </form>
+
+    <form method="get" action="{% url 'update_student_list' %}">
+        <button type="submit">Update Students</button>
+    </form>
+
+    <form method="get" action="{% url 'delete_student_list' %}">
+        <button type="submit">Delete Students</button>
+    </form>
+</body>
+</html>

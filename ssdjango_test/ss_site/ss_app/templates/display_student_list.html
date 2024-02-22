@@ -1,0 +1,20 @@
+<!-- display_student_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'ss_app/styles.css' %}">
+    <title>Student List</title>
+</head>
+<body align="center">
+    <h1>Student List</h1>
+    <ul>
+        {% for s in students %}
+            <li>
+                {{ s.fname }} {{ s.lname }} (Roll No: {{ s.rollno }}, Department: {{ s.department }}, Course: {{ s.course }})
+            </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'student_list' %}">Back to Student Management System</a></p>
+</body>
+</html>

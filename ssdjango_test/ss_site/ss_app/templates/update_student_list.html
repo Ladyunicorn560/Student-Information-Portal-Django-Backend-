@@ -1,0 +1,21 @@
+<!-- update_student_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'ss_app/styles.css' %}">
+    <title>Update Student List</title>
+</head>
+<body align="center">
+    <h1>Update Students</h1>
+    <ul>
+        {% for s in students %}
+        <li>
+            {{ s.fname }} {{ s.lname }} (Roll No: {{ s.rollno }}, Department: {{ s.department }}, Course: {{ s.course }})
+            <a href="{% url 'update_student' s.id %}">Update</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'student_list' %}">Back to Student List</a></p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!-- delete_student_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'ss_app/styles.css' %}">
+    <title>Delete Student List</title>
+</head>
+<body align="center">
+    <h1>Delete Student List</h1>
+
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student.fname }} {{ student.lname }} (Roll No: {{ student.rollno }},
+                Department: {{ student.department }}, Course: {{ student.course }})
+                <a href="{% url 'delete_student' student.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'student_list' %}">Back to Student List</a></p>
+</body>
+</html>
